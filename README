@@ -1,0 +1,46 @@
+bibfrompdfs extraction tool
+
+Copyright 2017 Nicolas Bruot (https://www.bruot.org/hp/)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+bibfrompdfs is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+bibfrompdfs is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with bibfrompdfs.  If not, see <http://www.gnu.org/licenses/>.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+For a description of what bibfrompdfs is and a guide on how to install and use it, see
+
+https://github.com/bruot/bibfrompdfs/wiki
+
+
+################
+# INSTALLATION #
+################
+
+bibfrompdfs currently works with Python 2 only (mainly because it uses textract).  It requires the textract package corresponding to your Python distribution.  It can be installed for example with pip:
+
+  pip install textract
+
+You also need the pdftotext tool.
+
+On Debian, make sure the poppler-utils package is installed.
+
+On Windows:
+
+  - Download the Xpdf tools from
+
+      http://www.xpdfreader.com/download.html
+
+  - Extract the files into, e.g. C:\bin\xpdf-tools-win-4.00.
+
+  - Add the binaries directory to your PATH environment variable.  On Windows 10: open an explorer, right-click on "This PC" and click "Properties". In the new window, click "Advanced settings", then "Environment Variables...", double-click on either the user or system "Path" variable, and add an entry, like "C:\bin\xpdf-tools-win-4.00\bin64".
