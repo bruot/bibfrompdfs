@@ -84,6 +84,8 @@ def process_pdf(pdf_path, bib_file, first_only=False):
             # When the DOI could not be fetched, it could be because the text
             # caught by the regexp included undesired parentheses at the end:
             stripped_doi = doi.rstrip('()')
+            # or dots...
+            stripped_doi = stripped_doi.rstrip('.')
             if stripped_doi == doi:
                 print('\tError: %s' % e)
                 print('\twhen fetching DOI: %s' % doi)
