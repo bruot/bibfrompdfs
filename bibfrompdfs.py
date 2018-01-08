@@ -93,7 +93,7 @@ def process_pdf(pdf_path, bib_file, first_only=False):
             else:
                 try:
                     bib_text = get_bib(stripped_doi)
-                except HttpError as e:
+                except urllib2.HTTPError as e:
                     print('\tError: %s' % e)
                     print('\twhen fetching stripped DOI: %s' % stripped_doi)
                     doi_status.append('doi_err_fetch')
