@@ -30,7 +30,11 @@ import os
 import re
 import codecs
 import argparse
-import urllib2
+import sys
+if sys.version_info[0] < 3:
+    from urllib2 import Request, urlopen, HTTPError
+else:
+    from urllib.request import Request, urlopen, HTTPError
 import textract
 
 
@@ -38,12 +42,15 @@ def get_bib(doi):
     """Returns the BibTeX string for the given DOI"""
 
     url = 'https://dx.doi.org/%s' % doi
-    request = urllib2.Request(url,
-                              headers={'Accept': 'text/bibliography; style=bibtex'})
-    response = urllib2.urlopen(request)
+    print(url)
+    request = Request(url,
+                      headers={'Accept': 'text/bibliography; style=bibtex'})
+    response = urlopen(request)
     try:
         encoding = response.headers.get_content_charset()
     except AttributeError:
+        encoding = 'utf-8'
+    if encoding is None:
         encoding = 'utf-8'
     return response.read().decode(encoding)
 
@@ -58,6 +65,8 @@ def process_pdf(pdf_path, bib_file, first_only=False):
     doi_status = []
     try:
         text = textract.process(pdf_path)
+        if sys.version_info[0] > 2:
+            text = str(text)
     except (UnicodeDecodeError, TypeError,
             textract.exceptions.ShellError) as e:
         print('\tError: %s' % e)
@@ -80,7 +89,7 @@ def process_pdf(pdf_path, bib_file, first_only=False):
     for doi in dois:
         try:
             bib_text = get_bib(doi)
-        except urllib2.HTTPError as e:
+        except HTTPError as e:
             # When the DOI could not be fetched, it could be because the text
             # caught by the regexp included undesired parentheses at the end:
             stripped_doi = doi.rstrip('()')
@@ -93,7 +102,7 @@ def process_pdf(pdf_path, bib_file, first_only=False):
             else:
                 try:
                     bib_text = get_bib(stripped_doi)
-                except urllib2.HTTPError as e:
+                except HTTPError as e:
                     print('\tError: %s' % e)
                     print('\twhen fetching stripped DOI: %s' % stripped_doi)
                     doi_status.append('doi_err_fetch')

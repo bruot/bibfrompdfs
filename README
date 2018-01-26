@@ -27,9 +27,13 @@ https://github.com/bruot/bibfrompdfs/wiki
 # INSTALLATION #
 ################
 
-bibfrompdfs currently works with Python 2 only (mainly because it uses textract).  It requires the textract package corresponding to your Python distribution.  It can be installed for example with pip:
+bibfrompdfs works with Python 2 and 3.  It requires the textract package corresponding to your Python distribution.  It can be installed for example with pip:
 
   pip install textract
+
+Alternatively, you can get textract from:
+
+https://github.com/deanmalmgren/textract
 
 You also need the pdftotext tool.
 
