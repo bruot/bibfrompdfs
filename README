@@ -1,6 +1,6 @@
 bibfrompdfs extraction tool
 
-Copyright 2017 Nicolas Bruot (https://www.bruot.org/hp/)
+Copyright 2017-2018 Nicolas Bruot (https://www.bruot.org/hp/)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 bibfrompdfs is free software: you can redistribute it and/or modify
@@ -18,9 +18,9 @@ along with bibfrompdfs.  If not, see <http://www.gnu.org/licenses/>.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-For a description of what bibfrompdfs is and a guide on how to install and use it, see
+For updates, see:
 
-https://github.com/bruot/bibfrompdfs/wiki
+https://github.com/bruot/bibfrompdfs/
 
 
 ################
@@ -34,6 +34,8 @@ bibfrompdfs works with Python 2 and 3.  It requires the textract package corresp
 Alternatively, you can get textract from:
 
 https://github.com/deanmalmgren/textract
+
+textract 1.6.1 does not support Python 3, so if you want to use Python 3, you should get a more recent version of textract or download the master branch from the link above.
 
 You also need the pdftotext tool.
 
