@@ -22,6 +22,16 @@ For updates, see:
 
 https://github.com/bruot/bibfrompdfs/
 
+##########################
+# INTRODUCTION AND USAGE #
+##########################
+
+bibfrompdfs is a Python script to build a BibTeX file from PDF articles.  It takes as an input a folder containing the PDFs, and searches for DOI links inside them to then fetch bibliography data online.  The output is a single .bib file in the same folder as the PDF files.
+
+Usage:
+
+  python bibfrompdfs.py FOLDER
+
 
 ################
 # INSTALLATION #
